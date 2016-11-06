@@ -17,6 +17,7 @@ import com.eliteams.quick4j.web.model.User;
 import com.eliteams.quick4j.web.service.PermissionService;
 import com.eliteams.quick4j.web.service.RoleService;
 import com.eliteams.quick4j.web.service.UserService;
+import org.springframework.util.DigestUtils;
 
 /**
  * 用户身份验证,授权 Realm 组件
@@ -69,7 +70,8 @@ public class SecurityRealm extends AuthorizingRealm {
         String username = String.valueOf(token.getPrincipal());
         String password = new String((char[]) token.getCredentials());
         // 通过数据库进行验证
-        final User authentication = userService.authentication(new User(username, password));
+        final User authentication = userService.authentication(new User(username, DigestUtils.md5DigestAsHex(password.getBytes())
+                ));
         if (authentication == null) {
             throw new AuthenticationException("用户名或密码错误.");
         }

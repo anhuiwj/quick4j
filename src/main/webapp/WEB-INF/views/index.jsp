@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@include file="/WEB-INF/views/include/lib.jsp" %>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -11,9 +11,9 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en" class="no-js">
-    <!--<![endif]-->
-    <!-- BEGIN HEAD -->
     <head>
+        <%@include file="/WEB-INF/views/include/static-js.jsp" %>
+        <%@include file="/WEB-INF/views/include/statics-css.jsp" %>
         <base href="<%=basePath%>">
         <meta charset="utf-8" />
         <title>Quick4j</title>
@@ -22,23 +22,6 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <meta content="" name="description" />
         <meta content="" name="author" />
         <meta name="MobileOptimized" content="320">
-
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
-        <!-- END GLOBAL MANDATORY STYLES -->
-
-        <!-- BEGIN THEME STYLES -->
-        <link href="assets/css/style-metronic.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/pages/tasks.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME STYLES -->
-
         <link rel="shortcut icon" href="app/img/favicon.ico" />
     </head>
     <!-- END HEAD -->
@@ -121,7 +104,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">
+                                    <a href="/rest/user/manager/index">
                                         用户管理
                                     </a>
                                 </li>
@@ -280,7 +263,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                                     <i class="fa fa-angle-right"></i>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">
+                                    <a href="javascript:void(0);">
                                         Dashboard
                                     </a>
                                 </li>
@@ -308,26 +291,5 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 <span class="go-top"><i class="fa fa-angle-up"></i></span>
             </div>
         </div>
-        <!--[if lt IE 9]>
-        <script src="assets/plugins/respond.min.js"></script>
-        <script src="assets/plugins/excanvas.min.js"></script>
-        <![endif]-->
-        <script src="assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-
-        <script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
-
-        <script src="assets/scripts/app.js" type="text/javascript"></script>
-        <script type="text/javascript" src="app/js/index.js"></script>
-
-        <!-- <script data-main="app/js/main" src="app/lib/requirejs/require.js"></script> -->
     </body>
 </html>

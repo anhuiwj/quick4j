@@ -38,5 +38,5 @@ $(function() {
 
     Index.init();
 
-    $('#btn-dashboard').trigger("click");
+    // $('#btn-dashboard').trigger("click");
 });
